@@ -7,8 +7,7 @@
     "coverage": "codecov",
     "lint": "eslint . --ext .js",
     "test": "nyc --reporter=lcov --reporter=text mocha --exit \"./{,!(node_modules)/**}/*.test.js\"",
-    "audit": "npm-audit-ci -h",
-    "flow": "flow"
+    "audit": "npm-audit-ci -h"
   },
   "repository": {
     "type": "git",
@@ -26,10 +25,7 @@
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-flow-header": "^0.2.0",
-    "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.13.0",
-    "flow-bin": "^0.77.0",
     "mocha": "^5.2.0",
     "npm-audit-ci": "^1.0.1",
     "nyc": "^12.0.2"
