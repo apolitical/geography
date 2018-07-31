@@ -18,6 +18,11 @@
   "bugs": {
     "url": "https://github.com/apolitical/geography/issues"
   },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
   "homepage": "https://github.com/apolitical/geography#readme",
   "devDependencies": {
     "chai": "^4.1.2",
