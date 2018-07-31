@@ -2,7 +2,11 @@
 // Regions of the world as defined by the World Bank
 // Source list of countries is the wordpress code;
 // this is also where the strings come from, as they're in the database
-const worldBankRegions = {
+
+type Region = { [key: string]: string };
+type RegionMap = { [key: string]: Region };
+
+const worldBankRegions: RegionMap = {
   // Africa
   afr: {
     AO: 'Angola',
@@ -252,19 +256,19 @@ const worldBankRegions = {
   },
 };
 
-const regions = () => (
+const regions = (): Array<string> => (
   Object.keys(worldBankRegions)
 );
 
-const countriesInRegion = (region) => (
+const countriesInRegion = (region: string): Region => (
   worldBankRegions[region] || {}
 );
 
-const countryCodesInRegion = (region) => (
+const countryCodesInRegion = (region: string): Array<string> => (
   Object.keys(countriesInRegion(region))
 );
 
-const countryNamesInRegion = (region) => (
+const countryNamesInRegion = (region: string): Array<string> => (
   Object.values(countriesInRegion(region))
 );
 
