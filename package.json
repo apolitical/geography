@@ -7,7 +7,9 @@
     "coverage": "codecov",
     "lint": "eslint . --ext .js",
     "test": "nyc --reporter=lcov --reporter=text mocha --exit \"./{,!(node_modules)/**}/*.test.js\"",
-    "audit": "npm-audit-ci -h"
+    "audit": "npm-audit-ci -h",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,10 @@
   ],
   "homepage": "https://github.com/apolitical/geography#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "chai": "^4.1.2",
     "codecov": "^3.0.4",
     "eslint": "^5.2.0",
