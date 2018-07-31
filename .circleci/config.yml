@@ -28,6 +28,15 @@ jobs:
     - run:
         name: run tests
         command: npm run test
+  flow:
+    <<: *job_defaults
+    steps:
+    - checkout
+    - restore_cache:
+        key: *cache_key
+    - run:
+        name: type checking
+        command: npm run flow
   lint:
     <<: *job_defaults
     steps:
@@ -53,6 +62,9 @@ workflows:
     jobs:
       - prepare
       - test:
+          requires:
+          - prepare
+      - flow:
           requires:
           - prepare
       - lint:
