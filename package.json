@@ -2,7 +2,7 @@
   "name": "@apolitical/geography",
   "version": "1.0.0",
   "description": " Geographical definitions used by Apolitical services ",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "coverage": "codecov",
     "lint": "eslint . --ext .js",
@@ -19,7 +19,7 @@
     "url": "https://github.com/apolitical/geography/issues"
   },
   "files": [
-    "index.js",
+    "lib/**",
     "LICENSE",
     "README.md"
   ],
