@@ -6,7 +6,7 @@
   "scripts": {
     "coverage": "codecov",
     "lint": "eslint src/ --ext .js",
-    "test": "nyc --reporter=lcov --reporter=text mocha --exit \"src/{,!(node_modules)/**}/*.test.js\"",
+    "test": "NODE_ENV=test nyc mocha --exit \"src/{,!(node_modules)/**}/*.test.js\"",
     "audit": "npm-audit-ci -h",
     "build": "babel src/ -d lib/",
     "prepublishOnly": "npm run build",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
@@ -45,5 +46,19 @@
     "mocha": "^5.2.0",
     "npm-audit-ci": "^1.0.1",
     "nyc": "^12.0.2"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.test.js*"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
