@@ -251,18 +251,25 @@ const worldBankRegions = {
   },
 };
 
-export const regions = () => (
+const regions = () => (
   Object.keys(worldBankRegions)
 );
 
-export const countriesInRegion = (region) => (
+const countriesInRegion = (region) => (
   worldBankRegions[region] || {}
 );
 
-export const countryCodesInRegion = (region) => (
+const countryCodesInRegion = (region) => (
   Object.keys(countriesInRegion(region))
 );
 
-export const countryNamesInRegion = (region) => (
+const countryNamesInRegion = (region) => (
   Object.values(countriesInRegion(region))
 );
+
+module.exports = {
+  regions,
+  countriesInRegion,
+  countryCodesInRegion,
+  countryNamesInRegion,
+};

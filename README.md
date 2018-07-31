@@ -5,12 +5,12 @@ Geographical definitions used by Apolitical services. Currently provides lookup 
 ## Usage
 
 ```
-import {
+const {
   regions,
   countriesInRegion,
   countryCodesInRegion,
   countryNamesInRegion,
-} from '@apolitical/geography';
+} = require('@apolitical/geography');
 
 regions() // Get a list of region codes
 countryNamesInRegion('afr') // Country names in Africa
