@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "coverage": "codecov",
-    "lint": "eslint . --ext .js",
-    "test": "nyc --reporter=lcov --reporter=text mocha --exit \"./{,!(node_modules)/**}/*.test.js\"",
+    "lint": "eslint src/ --ext .js",
+    "test": "nyc --reporter=lcov --reporter=text mocha --exit \"src/{,!(node_modules)/**}/*.test.js\"",
     "audit": "npm-audit-ci -h",
     "build": "babel src/ -d lib/",
     "prepublish": "npm run build",
