@@ -2,4 +2,4 @@
 src/**/*.js
 
 [libs]
-flow-typed/mocha.js
+flow-typed/npm/mocha_v5.x.x.js
