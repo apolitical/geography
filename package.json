@@ -9,7 +9,7 @@
     "test": "nyc --reporter=lcov --reporter=text mocha --exit \"src/{,!(node_modules)/**}/*.test.js\"",
     "audit": "npm-audit-ci -h",
     "build": "babel src/ -d lib/",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "flow": "flow"
   },
   "repository": {
