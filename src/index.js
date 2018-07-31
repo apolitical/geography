@@ -1,3 +1,4 @@
+// @flow
 // Regions of the world as defined by the World Bank
 // Source list of countries is the wordpress code;
 // this is also where the strings come from, as they're in the database

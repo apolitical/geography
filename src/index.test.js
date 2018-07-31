@@ -1,3 +1,4 @@
+// @flow
 const { expect } = require('./test-helper.js');
 
 const {
