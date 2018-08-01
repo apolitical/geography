@@ -3,6 +3,7 @@ const { expect } = require('./test-helper.js');
 
 const {
   regions,
+  regionName,
   countriesInRegion,
   countryCodesInRegion,
   countryNamesInRegion,
@@ -21,6 +22,18 @@ describe('region helper', () => {
       'oc',
       'sar',
     ]);
+  });
+
+  it('provides a region names', () => {
+    expect(regionName('afr', 'en-GB')).to.eql('Africa');
+  });
+
+  it('falls back to provided data if locale not found', () => {
+    expect(regionName('afr', 'fr')).to.eql('afr');
+  });
+
+  it('returns null if no valid region is found', () => {
+    expect(regionName('moon', 'en-GB')).to.eql(null);
   });
 
   it('provides a list of countries in a region', () => {

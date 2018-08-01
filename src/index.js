@@ -260,6 +260,26 @@ const regions = (): Array<string> => (
   Object.keys(worldBankRegions)
 );
 
+const regionName = (region: string, locale: string = 'en-GB'): string => {
+  const regionNames = {
+    'en-GB': {
+      afr: 'Africa',
+      cas: 'Central Asia',
+      eap: 'East Asia & Pacific',
+      eur: 'Europe',
+      lac: 'Latin America & Caribbean',
+      mena: 'Middle East & North Africa',
+      na: 'North America',
+      oc: 'Oceania',
+      sar: 'South Asia',
+    },
+  };
+  if (regionNames[locale]) {
+    return regionNames[locale][region] || null;
+  }
+  return region;
+};
+
 const countriesInRegion = (region: string): Region => (
   worldBankRegions[region] || {}
 );
@@ -274,6 +294,7 @@ const countryNamesInRegion = (region: string): Array<string> => (
 
 module.exports = {
   regions,
+  regionName,
   countriesInRegion,
   countryCodesInRegion,
   countryNamesInRegion,
