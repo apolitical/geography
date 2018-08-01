@@ -1,3 +1,4 @@
+// @flow
 const { expect } = require('./test-helper.js');
 
 const {
@@ -22,11 +23,15 @@ describe('region helper', () => {
     ]);
   });
 
-  it('provides a list of countries in a region', () => {
-    expect(countriesInRegion('na')).to.eql({
-      CA: 'Canada',
-      US: 'United States of America',
-    });
+  it('provides a map of countries in a region', () => {
+    expect(countriesInRegion('na')).to.eql(new Map([
+      ['CA', 'Canada'],
+      ['US', 'United States of America'],
+    ]));
+  });
+
+  it('return X if asking for a non-existent region', () => {
+    expect(countriesInRegion('moon')).to.eql(null);
   });
 
   it('provides a list of country codes in a region', () => {
@@ -40,6 +45,10 @@ describe('region helper', () => {
       'NP',
       'PK',
     ]);
+  });
+
+  it('provides an empty list of codes for an invalid region', () => {
+    expect(countryCodesInRegion('moon')).to.eql([]);
   });
 
   it('provides a list of country names in a region', () => {
@@ -57,7 +66,7 @@ describe('region helper', () => {
     ]);
   });
 
-  it('provides an empty list for an invalid region', () => {
+  it('provides an empty list of names for an invalid region', () => {
     expect(countryNamesInRegion('moon')).to.eql([]);
   });
 });

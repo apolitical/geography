@@ -2,12 +2,15 @@
   "name": "@apolitical/geography",
   "version": "1.0.0",
   "description": " Geographical definitions used by Apolitical services ",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "coverage": "codecov",
-    "lint": "eslint . --ext .js",
-    "test": "nyc --reporter=lcov --reporter=text mocha --exit \"./{,!(node_modules)/**}/*.test.js\"",
-    "audit": "npm-audit-ci -h"
+    "lint": "eslint src/ --ext .js",
+    "test": "NODE_ENV=test nyc mocha --exit \"src/{,!(node_modules)/**}/*.test.js\"",
+    "audit": "npm-audit-ci -h",
+    "build": "babel src/ -d lib/",
+    "prepublishOnly": "npm run build",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
@@ -19,20 +22,43 @@
     "url": "https://github.com/apolitical/geography/issues"
   },
   "files": [
-    "index.js",
+    "lib/**",
     "LICENSE",
     "README.md"
   ],
   "homepage": "https://github.com/apolitical/geography#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "chai": "^4.1.2",
     "codecov": "^3.0.4",
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-flow-header": "^0.2.0",
+    "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.13.0",
+    "flow-bin": "^0.77.0",
     "mocha": "^5.2.0",
     "npm-audit-ci": "^1.0.1",
     "nyc": "^12.0.2"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.test.js*"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }

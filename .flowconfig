@@ -1,0 +1,5 @@
+[include]
+src/**/*.js
+
+[libs]
+flow-typed/npm/mocha_v5.x.x.js
