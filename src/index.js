@@ -9,6 +9,9 @@ type RegionMap = { [key: string]: Region };
 const worldBankRegions: RegionMap = {
   // Africa
   afr: {
+    translations: {
+      'en-GB': 'Africa',
+    },
     countries: {
       AO: 'Angola',
       BF: 'Burkina Faso',
@@ -62,6 +65,9 @@ const worldBankRegions: RegionMap = {
   },
   // Central Asia
   cas: {
+    translations: {
+      'en-GB': 'Central Asia',
+    },
     countries: {
       AM: 'Armenia',
       AZ: 'Azerbaijan',
@@ -77,6 +83,9 @@ const worldBankRegions: RegionMap = {
   },
   // East Asia and Pacific
   eap: {
+    translations: {
+      'en-GB': 'East Asia & Pacific',
+    },
     countries: {
       BN: 'Brunei Darussalam',
       CN: 'China',
@@ -99,6 +108,9 @@ const worldBankRegions: RegionMap = {
   },
   // Europe
   eur: {
+    translations: {
+      'en-GB': 'Europe',
+    },
     countries: {
       AD: 'Andorra',
       AL: 'Albania',
@@ -154,6 +166,9 @@ const worldBankRegions: RegionMap = {
   },
   // Latin America and the Caribbean
   lac: {
+    translations: {
+      'en-GB': 'Latin America & Caribbean',
+    },
     countries: {
       AG: 'Antigua and Barbuda',
       AI: 'Anguilla',
@@ -204,6 +219,9 @@ const worldBankRegions: RegionMap = {
   },
   // Middle East and North Africa
   mena: {
+    translations: {
+      'en-GB': 'Middle East & North Africa',
+    },
     countries: {
       AE: 'United Arab Emirates',
       BH: 'Bahrain',
@@ -229,6 +247,9 @@ const worldBankRegions: RegionMap = {
   },
   // North America
   na: {
+    translations: {
+      'en-GB': 'North America',
+    },
     countries: {
       CA: 'Canada',
       US: 'United States of America',
@@ -236,6 +257,9 @@ const worldBankRegions: RegionMap = {
   },
   // Australia and Oceania
   oc: {
+    translations: {
+      'en-GB': 'Oceania',
+    },
     countries: {
       AS: 'American Samoa',
       AU: 'Australia',
@@ -261,6 +285,9 @@ const worldBankRegions: RegionMap = {
   },
   // South Asia
   sar: {
+    translations: {
+      'en-GB': 'South Asia',
+    },
     countries: {
       AF: 'Afghanistan',
       BD: 'Bangladesh',
@@ -279,23 +306,10 @@ const regions = (): Array<string> => (
 );
 
 const regionName = (region: string, locale: string = 'en-GB'): string => {
-  const regionNames = {
-    'en-GB': {
-      afr: 'Africa',
-      cas: 'Central Asia',
-      eap: 'East Asia & Pacific',
-      eur: 'Europe',
-      lac: 'Latin America & Caribbean',
-      mena: 'Middle East & North Africa',
-      na: 'North America',
-      oc: 'Oceania',
-      sar: 'South Asia',
-    },
-  };
-  if (regionNames[locale]) {
-    return regionNames[locale][region] || null;
+  if (worldBankRegions[region]) {
+    return worldBankRegions[region].translations[locale] || region;
   }
-  return region;
+  return '';
 };
 
 const countriesInRegion = (region: string): Region => (

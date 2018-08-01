@@ -32,8 +32,8 @@ describe('region helper', () => {
     expect(regionName('afr', 'fr')).to.eql('afr');
   });
 
-  it('returns null if no valid region is found', () => {
-    expect(regionName('moon', 'en-GB')).to.eql(null);
+  it('returns empty if no valid region is found', () => {
+    expect(regionName('moon', 'en-GB')).to.eql('');
   });
 
   it('provides a list of countries in a region', () => {
