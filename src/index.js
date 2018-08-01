@@ -256,15 +256,15 @@ const worldBankRegions: RegionMap = new Map([
   ])],
 ]);
 
-const regions = (): Array<string> => (
+export const regions = (): Array<string> => (
   Array.from(worldBankRegions.keys())
 );
 
-const countriesInRegion = (region: string): ?Region => (
+export const countriesInRegion = (region: string): ?Region => (
   worldBankRegions.get(region) || null
 );
 
-const countryCodesInRegion = (region: string): Array<string> => {
+export const countryCodesInRegion = (region: string): Array<string> => {
   const countries = countriesInRegion(region);
   if (countries) {
     return Array.from(countries.keys());
@@ -272,17 +272,10 @@ const countryCodesInRegion = (region: string): Array<string> => {
   return [];
 };
 
-const countryNamesInRegion = (region: string): Array<string> => {
+export const countryNamesInRegion = (region: string): Array<string> => {
   const countries = countriesInRegion(region);
   if (countries) {
     return Array.from(countries.values());
   }
   return [];
-};
-
-module.exports = {
-  regions,
-  countriesInRegion,
-  countryCodesInRegion,
-  countryNamesInRegion,
 };

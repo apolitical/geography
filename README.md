@@ -12,6 +12,16 @@ const {
   countryNamesInRegion,
 } = require('@apolitical/geography');
 
+OR
+
+import {
+  regions,
+  countriesInRegion,
+  countryCodesInRegion,
+  countryNamesInRegion,
+} from '@apolitical/geography';
+
+
 regions() // Get a list of region codes
 countryNamesInRegion('afr') // Country names in Africa
 countryCodesInRegion('eur') // Country code in Europe
