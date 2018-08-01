@@ -28,7 +28,7 @@ countryCodesInRegion('eur') // Country code in Europe
 countriesInRegion('na') // Code->name map for North America
 ```
 
-For IE support, you will need to use [`babel-polyfill`](https://github.com/babel/babel-preset-env#usebuiltins) in your application.
+For full browser support (including IE 10 & 11), you will need to use [`babel-polyfill`](https://github.com/babel/babel-preset-env#usebuiltins) in your application.
 
 ## Regions
 
