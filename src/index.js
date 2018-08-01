@@ -1,4 +1,6 @@
 // @flow
+import { defaultLocale, regionNames } from './i18n';
+
 // Regions of the world as defined by the World Bank
 // Source list of countries is the wordpress code;
 // this is also where the strings come from, as they're in the database
@@ -259,6 +261,14 @@ const worldBankRegions: RegionMap = new Map([
 export const regions = (): Array<string> => (
   Array.from(worldBankRegions.keys())
 );
+
+export const regionName = (region: string, locale: string = defaultLocale): ?string => {
+  const r = regionNames.get(region);
+  if (r) {
+    return r.get(locale) || r.get(defaultLocale);
+  }
+  return region;
+};
 
 export const countriesInRegion = (region: string): ?Region => (
   worldBankRegions.get(region) || null

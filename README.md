@@ -23,6 +23,9 @@ import {
 
 
 regions() // Get a list of region codes
+
+regionName('afr', 'en-GB') // The name of the afr region in UK English (i.e. Africa)
+
 countryNamesInRegion('afr') // Country names in Africa
 countryCodesInRegion('eur') // Country code in Europe
 countriesInRegion('na') // Code->name map for North America
