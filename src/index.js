@@ -4,7 +4,8 @@
 // this is also where the strings come from, as they're in the database
 
 type Region = { [key: string]: string };
-type RegionMap = { [key: string]: Region };
+type RegionInfo = { [key: string]: Region };
+type RegionMap = { [key: string]: RegionInfo };
 
 const worldBankRegions: RegionMap = {
   // Africa
