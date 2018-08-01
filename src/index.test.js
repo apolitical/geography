@@ -24,16 +24,16 @@ describe('region helper', () => {
     ]);
   });
 
-  it('provides a region names', () => {
+  it('provides a region name', () => {
     expect(regionName('afr', 'en-GB')).to.eql('Africa');
   });
 
-  it('falls back to provided data if locale not found', () => {
-    expect(regionName('afr', 'fr')).to.eql('afr');
+  it('falls back to en-GB if locale not found', () => {
+    expect(regionName('afr', 'fr')).to.eql('Africa');
   });
 
-  it('returns empty if no valid region is found', () => {
-    expect(regionName('moon', 'en-GB')).to.eql('');
+  it('returns provided data if no valid region is found', () => {
+    expect(regionName('moon', 'en-GB')).to.eql('moon');
   });
 
   it('provides a map of countries in a region', () => {
@@ -43,7 +43,7 @@ describe('region helper', () => {
     ]));
   });
 
-  it('return X if asking for a non-existent region', () => {
+  it('return null if asking for a non-existent region', () => {
     expect(countriesInRegion('moon')).to.eql(null);
   });
 
