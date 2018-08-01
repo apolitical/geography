@@ -12,6 +12,16 @@ const {
   countryNamesInRegion,
 } = require('@apolitical/geography');
 
+OR
+
+import {
+  regions,
+  countriesInRegion,
+  countryCodesInRegion,
+  countryNamesInRegion,
+} from '@apolitical/geography';
+
+
 regions() // Get a list of region codes
 
 regionName('afr', 'en-GB') // The name of the afr region in UK English (i.e. Africa)
@@ -21,6 +31,7 @@ countryCodesInRegion('eur') // Country code in Europe
 countriesInRegion('na') // Code->name map for North America
 ```
 
+For full browser support (including IE 10 & 11), you will need to use [`babel-polyfill`](https://github.com/babel/babel-preset-env#usebuiltins) in your application.
 
 ## Regions
 
