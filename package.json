@@ -42,7 +42,7 @@
     "eslint-plugin-flow-header": "^0.2.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.13.0",
-    "flow-bin": "^0.80.0",
+    "flow-bin": "^0.81.0",
     "mocha": "^5.2.0",
     "npm-audit-ci": "^1.0.1",
     "nyc": "^12.0.2"
